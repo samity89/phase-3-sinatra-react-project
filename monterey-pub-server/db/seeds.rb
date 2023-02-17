@@ -123,7 +123,7 @@ MenuItem.create([
     },
     {
         name: "Bangers and Mashed",
-        description: "Irish sausage, mashed potatoes, served with a "side" of onion gravy",
+        description: "Irish sausage, mashed potatoes, served with a side of onion gravy",
         type: "entree"
     },
     {
