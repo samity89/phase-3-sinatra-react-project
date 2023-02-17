@@ -8,7 +8,7 @@ MenuItem.create([
     },
     {
         name: "Onion Rings",
-        description: "thick "beer" battered onion rings served with our golden mustard",
+        description: "thick beer battered onion rings served with our golden mustard",
         type: "appetizer"
     },
     {
