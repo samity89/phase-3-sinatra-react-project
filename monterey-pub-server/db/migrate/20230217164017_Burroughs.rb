@@ -10,7 +10,7 @@ class Burroughs < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
       t.string :username
-      t.string :userEmail
+      t.string :user_email
       t.timestamp
     end
   end

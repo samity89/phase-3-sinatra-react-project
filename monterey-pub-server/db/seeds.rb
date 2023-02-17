@@ -261,15 +261,15 @@ MenuItem.create([
 User.create([
     {
         username: "Vila la Bob",
-        userEmail: "homeagain@gmail.com"
+        user_email: "homeagain@gmail.com"
     },
     {
         username: "Buzz",
-        userEmail: "infinity@andbeyond.com"
+        user_email: "infinity@andbeyond.com"
     },
     {
         username: "samity",
-        userEmail: "samity@gmail.com"
+        user_email: "samity@gmail.com"
     }
 ])
 
