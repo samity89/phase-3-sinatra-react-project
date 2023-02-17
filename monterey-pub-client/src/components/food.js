@@ -17,56 +17,56 @@ function Food (
     <FoodCard
       food={appetizer}
       key={appetizer.name}
-      />
+    />
   ))
 
   const renderFlatbreads = flatbreads.map((flatbread) => (
     <FoodCard
       food={flatbread}
       key={flatbread.name}
-      />
+    />
   ))
 
   const renderSammiches = sammiches.map((sammich) => (
     <FoodCard
       food={sammich}
       key={sammich.name}
-      />
+    />
   ))
 
   const renderBurgers = burgers.map((burger) => (
     <FoodCard
     food={burger}
       key={burger.name}
-      />
+    />
   ))
 
   const renderEntrees = entrees.map((entree) => (
     <FoodCard
-    food={entree}
+      food={entree}
       key={entree.name}
-      />
+    />
   ))
 
   const renderSalads = salads.map((salad) => (
     <FoodCard
-    food={salad}
+      food={salad}
       key={salad.name}
-      />
+    />
   ))
 
   const renderKids = kids.map((kid) => (
     <FoodCard
-    food={kid}
+      food={kid}
       key={kid.name}
-      />
+    />
   ))
 
   const renderSides = sides.map((side) => (
     <FoodCard
-    food={side}
+      food={side}
       key={side.name}
-      />
+    />
   ))
   
   return (
