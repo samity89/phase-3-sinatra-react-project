@@ -197,102 +197,107 @@
       {
         "id": 1,
         "name": "Filson",
-        "ingredients": "rum, pear liqueur, cinnamon, lemon"
+        "description": "rum, pear liqueur, cinnamon, lemon"
       },
       {
         "id": 2,
         "name": "Veto",
-        "ingredients": "vodka, Italicus, Super Punch, lime, pomegranate"
+        "description": "vodka, Italicus, Super Punch, lime, pomegranate"
       },
       {
         "id": 3,
         "name": "Alpine",
-        "ingredients": "gin, thyme liqueur, olive juice"
+        "description": "gin, thyme liqueur, olive juice"
       },
       {
         "id": 4,
         "name": "West North",
-        "ingredients": "cognac, Apple Jack, brandy, Luxardo Cherry, Peychaud's, Angostura Bitters, absinthe"
+        "description": "cognac, Apple Jack, brandy, Luxardo Cherry, Peychaud's, Angostura Bitters, absinthe"
       },
       {
         "id": 5,
         "name": "Monterey",
-        "ingredients": "Irish whiskey, Irish meade, Tuaca, cayenne, honey, Angostura Bitters"
+        "description": "Irish whiskey, Irish meade, Tuaca, cayenne, honey, Angostura Bitters"
       },
       {
         "id": 6,
         "name": "Wolfrum",
-        "ingredients": "mezcal, tequila, spiced pumpkin, apple cider, lime"
+        "description": "mezcal, tequila, spiced pumpkin, apple cider, lime"
       },
       {
         "id": 7,
         "name": "Y.M.C.A.",
-        "ingredients": "rye, Cynar, Drambuie, almond, maple, vanilla"
+        "description": "rye, Cynar, Drambuie, almond, maple, vanilla"
       },
       {
         "id": 8,
         "name": "Day Way",
-        "ingredients": "gin, Gran Gala, Spanish liqueur, cranberry, lemon"
+        "description": "gin, Gran Gala, Spanish liqueur, cranberry, lemon"
       }
     ],
     "beer": [
       {
         "id": 1,
         "name": "Einbecker German Pilsner",
-        "abv": "4.8%"
+        "description": "4.8%"
       },
       {
         "id": 2,
         "name": "Guinness",
-        "abv": "4.2%"
+        "description": "4.2%"
       },
       {
         "id": 3,
         "name": "Smithwicks",
-        "abv": "3.8%"
+        "description": "3.8%"
       },
       {
         "id": 4,
         "name": "IC Light",
-        "abv": "4.2%"
+        "description": "4.2%"
       },
       {
         "id": 5,
         "name": "Arsenal Snowbound Cinnamon Cider",
-        "abv": "8.5%"
+        "description": "8.5%"
       },
       {
         "id": 6,
         "name": "Great Lakes Oatmeal Stout",
-        "abv": "5.4%"
+        "description": "5.4%"
       },
       {
         "id": 7,
         "name": "Grist House Chameleon NE IPA",
-        "abv": "6.4%"
+        "description": "6.4%"
       },
       {
         "id": 8,
         "name": "Hop Farm Ghost Cowboy IPA",
-        "abv": "6.5%"
+        "description": "6.5%"
       }
     ]
   },
-  "users": [
+  "comments": [
     {
       "id": 1,
       "username": "Vila la Bob",
-      "userEmail": "homeagain@gmail.com"
+      "comment": "It feels like I'm home again"
     },
     {
       "id": 2,
       "username": "Buzz",
-      "userEmail": "infinity@andbeyond.com"
+      "comment": "The burgers are beyond infinity"
     },
     {
       "username": "samity",
-      "userEmail": "samity@gmail.com",
+      "comment": "There's a super cute bartender there!",
       "id": 3
+    },
+    {
+      "username": "EggMan",
+      "comment": "love their breakfast burritos",
+      "id": 4
     }
   ]
 }

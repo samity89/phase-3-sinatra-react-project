@@ -1,23 +1,23 @@
 import React from "react";
 
 function CocktailCard({cocktail}) {
-  const {name, ingredients} = cocktail
+  const {name, description} = cocktail
 
   return (
     <div className="card">
       <h3>{name}</h3>
-      <p>{ingredients}</p>
+      <p>{description}</p>
     </div>
   );
 }
 
 function BeerCard({beer}) {
-  const {name, abv} = beer
+  const {name, description} = beer
 
   return (
     <div className="card">
       <h3>{name}</h3>
-      <p>{abv}</p>
+      <p>{description}</p>
     </div>
   );
 }

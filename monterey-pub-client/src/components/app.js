@@ -11,13 +11,13 @@ function App() {
   const [cocktails, setCocktails] = useState([])
   const [beer, setBeer] = useState([])
   const [formData, setFormData] = useState({
-    username: "username",
-    userEmail: "your@email.com",
+    username: "name",
+    comment: "your comment",
   });
-  const [emailList, setEmailList] = useState([])
+  const [comments, setComments] = useState([])
   const initializeForm = {
-    username: "username",
-    userEmail: "your@email.com",
+    username: "name",
+    comment: "your comment",
   }
 
   useEffect(() => {
@@ -28,36 +28,41 @@ function App() {
       setBeer(data.beer)
       setCocktails(data.cocktails)
     });
-    fetch("http://localhost:3001/users")
+    fetch("http://localhost:3001/comments")
     .then((response) => response.json())
-    .then((data) => setEmailList(data))
+    .then((data) => setComments(data))
   }, [])
   
   function handleUsernameChange(event) {
     setFormData({...formData, username: event.target.value});
   }
 
-  function handleUserEmailChange(event) {
-    setFormData({...formData, userEmail: event.target.value})
+  function handleCommentChange(event) {
+    setFormData({...formData, comment: event.target.value})
   }
 
-  function handleAddUser (newUser) {
-    setEmailList([...emailList, newUser])
+  function handleAddComment (newComment) {
+    setComments([...comments, newComment])
+  }
+
+  function handleDeleteComment(id) {
+    const updatedComments = comments.filter((comment) => comment.id !== id);
+    setComments(updatedComments);
   }
 
   function handleFormSubmit (event) {
     event.preventDefault()
-    fetch("http://localhost:3001/users", {
+    fetch("http://localhost:3001/comments", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(
         {
         "username": formData.username,
-        "userEmail": formData.userEmail
+        "comment": formData.comment
         })
       })
     .then((response) => response.json())
-    .then((newUser) => handleAddUser(newUser))
+    .then((newComment) => handleAddComment(newComment))
     setFormData(initializeForm)
   }
 
@@ -73,9 +78,10 @@ function App() {
           element={<Contact 
             handleFormSubmit={handleFormSubmit} 
             formData={formData}
-            handleUserEmailChange={handleUserEmailChange}
+            handleCommentChange={handleCommentChange}
             handleUsernameChange={handleUsernameChange}
-            emailList={emailList}
+            comments={comments}
+            onCommentDelete={handleDeleteComment}
             />}/>
       </Routes>
     </div>

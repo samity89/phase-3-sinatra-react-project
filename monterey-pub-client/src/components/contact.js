@@ -2,17 +2,34 @@ import React from "react";
 import EmailForm from "./emailform";
 
 function Contact({
-  emailList, 
+  comments, 
   formData, 
   handleFormSubmit,
   handleUsernameChange,
-  handleUserEmailChange }
-) {
+  handleCommentChange,
+  onCommentDelete
+  }) {
   
-  const renderUsers = emailList.map((user) => (
+  // const { id, username, comment } = comment
+  
+  function handleDeleteClick(id) {
+      console.log("CLICKED")
+      fetch(`http://localhost:3001/comments/${id}`, {
+        method: "DELETE",
+      });
+      onCommentDelete(id);
+  }
+  
+  const renderUsers = comments.map((user) => (
     <tr key={user.id}>
       <td key={user.username}>{user.username}</td>
-      <td key={user.userEmail}>{user.userEmail}</td>
+      <td key={user.comment}>{user.comment}
+        <button onClick={handleDeleteClick}>
+          <span role="img" aria-label="delete">
+              🗑
+          </span>
+        </button>
+      </td>
     </tr>
   ))
   
@@ -20,19 +37,19 @@ function Contact({
     <h1>Contact Us</h1>
     <p>Questions or concerns?  Please feel free to message us on our <a href="https://www.instagram.com/themontereypub/">Instagram</a>!</p>
     <br/>
-    <h2>Pub Squad</h2>
-    <p>join the Pub Squad for updates on events and specials</p>
+    <h2>Comments</h2>
+    <p>leave a comment to spread the love!</p>
     <EmailForm 
       handleFormSubmit={handleFormSubmit} 
       formData={formData}
-      handleUserEmailChange={handleUserEmailChange}
+      handleCommentChange={handleCommentChange}
       handleUsernameChange={handleUsernameChange}
       />
-    <h4>recent initiates</h4>
+    <h4>recent comments</h4>
         <table>
           <tr>
             <th>username</th>
-            <th>e-mail</th>
+            <th>comment</th>
           </tr>
           {renderUsers}
         </table>
