@@ -5,8 +5,12 @@ Menu.create([
         category: "Food"
     },
     {
-        category: "Drinks"
+        category: "Cocktails"
+    },
+    {
+        category: "Beers"
     }
+
 ])
 
 Food.create([
@@ -269,57 +273,57 @@ Beer.create([
     {
         name: "Einbecker German Pilsner",
         description: "4.8%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Guinness",
         description: "4.2%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Smithwicks",
         description: "3.8%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "IC Light",
         description: "4.2%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Arsenal Snowbound Cinnamon Cider",
         description: "8.5%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Great Lakes Oatmeal Stout",
         description: "5.4%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Grist House Chameleon NE IPA",
         description: "6.4%",
-        menu_id: 2
+        menu_id: 3
     },
     {
         name: "Hop Farm Ghost Cowboy IPA",
         description: "6.5%",
-        menu_id: 2
+        menu_id: 3
     }
 ])
 
 Comment.create([
     {
         username: "Vila la Bob",
-        comment: "It feels like I am home again"
+        body: "It feels like I am home again"
     },
     {
         username: "Buzz",
-        comment: "The burgers are beyond infinity"
+        body: "The burgers are beyond infinity"
     },
     {
         username: "samity",
-        comment: "One of the bartenders is super cute!"
+        body: "One of the bartenders is super cute!"
     }
 ])
 
