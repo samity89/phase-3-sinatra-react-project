@@ -21,14 +21,23 @@ function App() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:3001/menu")
+    // fetch("http://localhost:9292/menu")
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   setFood(data.food)
+    //   setBeer(data.beer)
+    //   setCocktails(data.cocktails)
+    // });
+    fetch("http://localhost:9292/foods")
     .then((response) => response.json())
-    .then((data) => {
-      setFood(data.food)
-      setBeer(data.beer)
-      setCocktails(data.cocktails)
-    });
-    fetch("http://localhost:3001/comments")
+    .then((foods) => setFood(foods));
+    fetch("http://localhost:9292/cocktails")
+    .then((response) => response.json())
+    .then((cocktails) => setCocktails(cocktails));
+    fetch("http://localhost:9292/beers")
+    .then((response) => response.json())
+    .then((beers) => setBeer(beers));
+    fetch("http://localhost:9292/comments")
     .then((response) => response.json())
     .then((data) => setComments(data))
   }, [])
@@ -47,7 +56,7 @@ function App() {
 
   function handleFormSubmit (event) {
     event.preventDefault()
-    fetch("http://localhost:3001/comments", {
+    fetch("http://localhost:9292/comments", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(
@@ -65,6 +74,17 @@ function App() {
     const updatedComments = comments.filter((comment) => comment.id !== id);
     setComments(updatedComments)
   }
+
+  function handleUpdateComment(updatedComment) {
+    const updatedComments = comments.map((comment) => {
+      if (comment.id === updatedComment.id) {
+        return updatedComment;
+      } else {
+        return comment;
+      }
+    });
+    setComments(updatedComments);
+  }
   
   return ( 
     <div>
@@ -72,7 +92,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/drinks" element={<Drinks cocktails={cocktails} beer={beer} />}/>
-        <Route path="/food" element={<Food {...food} />}/>
+        <Route path="/food" element={<Food foods={food} />}/>
         <Route path="/contact" 
           element={<Contact 
             handleFormSubmit={handleFormSubmit} 
@@ -81,6 +101,7 @@ function App() {
             handleUsernameChange={handleUsernameChange}
             comments={comments}
             onCommentDelete={handleDeleteComment}
+            onCommentUpdate={handleUpdateComment}
             />}/>
       </Routes>
     </div>

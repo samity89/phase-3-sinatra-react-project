@@ -1,22 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import EditComment from "./EditComment";
 
-function Comment({ comment, onCommentDelete }) {
-
+function Comment({ comment, onCommentDelete, onCommentUpdate }) {
+  const [isEditing, setIsEditing] = useState(false);
   const { id, username, body } = comment;
 
   function handleDeleteClick() {
-    fetch(`http://localhost:3001/comments/${id}`, {
+    fetch(`http://localhost:9292/comments/${id}`, {
       method: "DELETE",
     });
 
     onCommentDelete(id);
   }
 
+  function handleUpdateComment(updatedComment) {
+    setIsEditing(false);
+    onCommentUpdate(updatedComment);
+  }
+
   return (
     <div>
       <span className="username">{username}</span>
-      <p>{body}</p>
+      {isEditing ? (
+        <EditComment
+          id={id}
+          body={body}
+          onCommentUpdate={handleUpdateComment}
+        />
+      ) : (
+        <p>{body}</p>
+      )}
         <div className="actions">
+          <button onClick={() => setIsEditing((isEditing) => !isEditing)}>
+            <span role="img" aria-label="edit">
+              ✏️
+            </span>
+          </button>
           <button onClick={handleDeleteClick}>
             <span role="img" aria-label="delete">
               🗑

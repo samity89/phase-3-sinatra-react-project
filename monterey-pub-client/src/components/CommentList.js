@@ -1,7 +1,7 @@
 import React from "react";
 import Comment from "./Comment";
 
-function CommentList({ comments, onCommentDelete}) {
+function CommentList({ comments, onCommentDelete, onCommentUpdate }) {
     return (
         <div className="list">
             <ul>
@@ -10,6 +10,7 @@ function CommentList({ comments, onCommentDelete}) {
                         key={comment.id}
                         comment={comment}
                         onCommentDelete={onCommentDelete}
+                        onCommentUpdate={onCommentUpdate}
                     />
                 ))}
             </ul>

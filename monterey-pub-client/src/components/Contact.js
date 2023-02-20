@@ -8,7 +8,8 @@ function Contact({
   handleFormSubmit,
   handleUsernameChange,
   handleCommentChange,
-  onCommentDelete
+  onCommentDelete,
+  onCommentUpdate,
   }) {
 
 
@@ -29,6 +30,7 @@ function Contact({
     <CommentList 
       comments={comments}
       onCommentDelete={onCommentDelete}
+      onCommentUpdate={onCommentUpdate}
     />
   </div>;
 }
