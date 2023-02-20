@@ -1,6 +1,6 @@
 import React from "react";
 
-function EmailForm( {
+function CommentForm( {
   formData,
   handleFormSubmit,
   handleUsernameChange,
@@ -16,4 +16,4 @@ function EmailForm( {
   );
 }
 
-export default EmailForm;
+export default CommentForm;

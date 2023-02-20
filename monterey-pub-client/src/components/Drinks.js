@@ -1,5 +1,5 @@
 import React from "react";
-import {CocktailCard, BeerCard} from "./drinkcards";
+import {CocktailCard, BeerCard} from "./DrinkCards";
 
 function Drinks({ cocktails, beer }) {
   const renderCocktails = cocktails.map((cocktail) => (

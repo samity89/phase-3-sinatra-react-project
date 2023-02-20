@@ -278,26 +278,5 @@
       }
     ]
   },
-  "comments": [
-    {
-      "id": 1,
-      "username": "Vila la Bob",
-      "comment": "It feels like I'm home again"
-    },
-    {
-      "id": 2,
-      "username": "Buzz",
-      "comment": "The burgers are beyond infinity"
-    },
-    {
-      "username": "samity",
-      "comment": "There's a super cute bartender there!",
-      "id": 3
-    },
-    {
-      "username": "EggMan",
-      "comment": "love their breakfast burritos",
-      "id": 4
-    }
-  ]
+  "comments": []
 }

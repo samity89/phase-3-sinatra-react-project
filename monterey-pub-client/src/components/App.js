@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./navbar";
-import Home from "./home";
-import Food from "./food";
-import Drinks from "./drinks";
-import Contact from "./contact";
+import NavBar from "./NavBar";
+import Home from "./Home";
+import Food from "./Food";
+import Drinks from "./Drinks";
+import Contact from "./Contact";
 
 function App() {
   const [food, setFood] = useState([])
@@ -45,11 +45,6 @@ function App() {
     setComments([...comments, newComment])
   }
 
-  function handleDeleteComment(id) {
-    const updatedComments = comments.filter((comment) => comment.id !== id);
-    setComments(updatedComments);
-  }
-
   function handleFormSubmit (event) {
     event.preventDefault()
     fetch("http://localhost:3001/comments", {
@@ -58,7 +53,7 @@ function App() {
       body: JSON.stringify(
         {
         "username": formData.username,
-        "comment": formData.comment
+        "body": formData.comment
         })
       })
     .then((response) => response.json())
@@ -66,6 +61,10 @@ function App() {
     setFormData(initializeForm)
   }
 
+  function handleDeleteComment(id) {
+    const updatedComments = comments.filter((comment) => comment.id !== id);
+    setComments(updatedComments)
+  }
   
   return ( 
     <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import FoodCard from "./foodcards";
+import FoodCard from "./FoodCards";
 
 function Food (
   { 
