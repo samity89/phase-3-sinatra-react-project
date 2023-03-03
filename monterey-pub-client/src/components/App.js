@@ -30,7 +30,7 @@ function App() {
     // });
     fetch("http://localhost:9292/foods")
     .then((response) => response.json())
-    .then((foods) => console.log(foods));
+    .then((foods) => setFood(foods));
     fetch("http://localhost:9292/cocktails")
     .then((response) => response.json())
     .then((cocktails) => setCocktails(cocktails));
