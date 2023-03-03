@@ -3,7 +3,7 @@ class CreateCocktails < ActiveRecord::Migration[6.1]
     create_table :cocktails do |t|
       t.string :name
       t.string :description
-      t.integer :menu_id
+      t.integer :drink_id
     end
   end
 end

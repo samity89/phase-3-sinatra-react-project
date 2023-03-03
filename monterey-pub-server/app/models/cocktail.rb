@@ -1,3 +1,3 @@
 class Cocktail < ActiveRecord::Base
-    belongs_to :menu
+    belongs_to :drinks
 end

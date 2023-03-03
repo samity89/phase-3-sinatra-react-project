@@ -5,12 +5,19 @@ Menu.create([
         category: "Food"
     },
     {
-        category: "Cocktails"
+        category: "Drinks"
+    },
+])
+
+Drink.create([
+    {
+        category: "Cocktails",
+        menu_id: 2
     },
     {
-        category: "Beers"
-    }
-
+        category: "Beers",
+        menu_id: 2
+    },
 ])
 
 Food.create([
@@ -230,42 +237,42 @@ Cocktail.create([
     {
         name: "Filson",
         description: "rum, pear liqueur, cinnamon, lemon",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Veto",
         description: "vodka, Italicus, Super Punch, lime, pomegranate",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Alpine",
         description: "gin, thyme liqueur, olive juice",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "West North",
         description: "cognac, Apple Jack, brandy, Luxardo Cherry, Peychaud's, Angostura Bitters, absinthe",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Monterey",
         description: "Irish whiskey, Irish meade, Tuaca, cayenne, honey, Angostura Bitters",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Wolfrum",
         description: "mezcal, tequila, spiced pumpkin, apple cider, lime",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Y.M.C.A.",
         description: "rye, Cynar, Drambuie, almond, maple, vanilla",
-        menu_id: 2
+        drink_id: 1
     },
     {
         name: "Day Way",
         description: "gin, Gran Gala, Spanish liqueur, cranberry, lemon",
-        menu_id: 2
+        drink_id: 1
     }
 ])
 
@@ -273,42 +280,42 @@ Beer.create([
     {
         name: "Einbecker German Pilsner",
         description: "4.8%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Guinness",
         description: "4.2%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Smithwicks",
         description: "3.8%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "IC Light",
         description: "4.2%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Arsenal Snowbound Cinnamon Cider",
         description: "8.5%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Great Lakes Oatmeal Stout",
         description: "5.4%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Grist House Chameleon NE IPA",
         description: "6.4%",
-        menu_id: 3
+        drink_id: 2
     },
     {
         name: "Hop Farm Ghost Cowboy IPA",
         description: "6.5%",
-        menu_id: 3
+        drink_id: 2
     }
 ])
 
