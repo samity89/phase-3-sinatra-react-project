@@ -21,25 +21,25 @@ function App() {
   }
 
   useEffect(() => {
-    // fetch("http://localhost:9292/menu")
+    fetch("http://localhost:9292/menus")
+    .then((response) => response.json())
+    .then((data) => {
+      setFood(data[0].foods)
+      setBeer(data[2].beers)
+      setCocktails(data[1].cocktails)
+    });
+    // fetch("http://localhost:9292/foods")
     // .then((response) => response.json())
-    // .then((data) => {
-    //   setFood(data.food)
-    //   setBeer(data.beer)
-    //   setCocktails(data.cocktails)
-    // });
-    fetch("http://localhost:9292/foods")
-    .then((response) => response.json())
-    .then((foods) => setFood(foods));
-    fetch("http://localhost:9292/cocktails")
-    .then((response) => response.json())
-    .then((cocktails) => setCocktails(cocktails));
-    fetch("http://localhost:9292/beers")
-    .then((response) => response.json())
-    .then((beers) => setBeer(beers));
-    fetch("http://localhost:9292/comments")
-    .then((response) => response.json())
-    .then((data) => setComments(data))
+    // .then((foods) => setFood(foods));
+    // fetch("http://localhost:9292/cocktails")
+    // .then((response) => response.json())
+    // .then((cocktails) => setCocktails(cocktails));
+    // fetch("http://localhost:9292/beers")
+    // .then((response) => response.json())
+    // .then((beers) => setBeer(beers));
+    // fetch("http://localhost:9292/comments")
+    // .then((response) => response.json())
+    // .then((data) => setComments(data))
   }, [])
   
   function handleUsernameChange(event) {

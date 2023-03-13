@@ -1,3 +1,3 @@
 class Beer < ActiveRecord::Base
-    belongs_to :drinks
+    belongs_to :menu
 end

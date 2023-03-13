@@ -1,6 +1,16 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
+  get '/menus' do
+    menus = Menu.all
+    menus.to_json(
+      include: [
+        :foods,
+        :cocktails,
+        :beers
+      ])
+  end
+  
   get '/foods' do
     foods = Food.all
     foods.to_json
