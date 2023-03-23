@@ -317,15 +317,18 @@ Beer.create([
 Comment.create([
     {
         username: "Vila la Bob",
-        body: "It feels like I am home again"
+        body: "It feels like I am home again",
+        cocktail_id: 1
     },
     {
         username: "Buzz",
-        body: "The burgers are beyond infinity"
+        body: "This drink is beyond infinity",
+        cocktail_id: 2
     },
     {
-        username: "samity",
-        body: "One of the bartenders is super cute!"
+        username: "Rose",
+        body: "I love this drink!",
+        cocktail_id: 1
     }
 ])
 

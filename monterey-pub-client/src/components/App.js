@@ -4,20 +4,21 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Food from "./Food";
 import Drinks from "./Drinks";
-import Contact from "./Contact";
+// import Contact from "./Contact";
 
 function App() {
   const [food, setFood] = useState([])
-  const [cocktails, setCocktails] = useState([])
   const [beer, setBeer] = useState([])
+  const [cocktails, setCocktails] = useState([])
   const [formData, setFormData] = useState({
     username: "name",
     comment: "your comment",
+    drink: 1
   });
-  const [comments, setComments] = useState([])
   const initializeForm = {
     username: "name",
     comment: "your comment",
+    drink: 1
   }
 
   useEffect(() => {
@@ -26,64 +27,84 @@ function App() {
     .then((data) => {
       setFood(data[0].foods)
       setBeer(data[2].beers)
-      setCocktails(data[1].cocktails)
     });
-    // fetch("http://localhost:9292/foods")
-    // .then((response) => response.json())
-    // .then((foods) => setFood(foods));
-    // fetch("http://localhost:9292/cocktails")
-    // .then((response) => response.json())
-    // .then((cocktails) => setCocktails(cocktails));
-    // fetch("http://localhost:9292/beers")
-    // .then((response) => response.json())
-    // .then((beers) => setBeer(beers));
-    // fetch("http://localhost:9292/comments")
-    // .then((response) => response.json())
-    // .then((data) => setComments(data))
+    fetch("http://localhost:9292/cocktails")
+    .then((response) => response.json())
+    .then((cocktails) => setCocktails(cocktails));
   }, [])
   
   function handleUsernameChange(event) {
     setFormData({...formData, username: event.target.value});
   }
 
+  function handleDrinkChange(event) {
+    setFormData({...formData, drink: event.target.value})
+  }
+
   function handleCommentChange(event) {
     setFormData({...formData, comment: event.target.value})
   }
-
-  function handleAddComment (newComment) {
-    setComments([...comments, newComment])
-  }
-
+  
   function handleFormSubmit (event) {
     event.preventDefault()
-    fetch("http://localhost:9292/comments", {
+    fetch(`http://localhost:9292/cocktails/${formData.drink}/comments`, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(
         {
-        "username": formData.username,
-        "body": formData.comment
+          "username": formData.username,
+          "body": formData.comment,
+          "cocktail_id": formData.drink,
         })
       })
-    .then((response) => response.json())
-    .then((newComment) => handleAddComment(newComment))
-    setFormData(initializeForm)
+      .then((response) => response.json())
+      .then((newComment) => handleAddComment(newComment))
+      setFormData(initializeForm)
+    }
+    
+  function handleAddComment (formData, newComment) {
+    const updatedCocktails = cocktails.map((cocktail) => {
+     if (cocktail.id === formData.drink) {
+      return (
+        [...cocktail.comments, newComment]
+       )
+       } else {
+        return cocktail;
+       }
+     })
+     console.log(updatedCocktails)
+     setCocktails(updatedCocktails)
+   }    
+
+
+  // function handleAddComment (formData, newComment) {
+  //    const updatedCocktails = cocktails.map((cocktail) => {
+  //     if (cocktail.id === formData.drink) {
+  //       return (
+  //         [...cocktail.comments, newComment]
+  //       )
+  //     } else {
+  //         return cocktail;
+  //     }
+  //   })
+  //   console.log(updatedCocktails)
+  //   setCocktails(updatedCocktails)
+  // }
+      
+  function handleDeleteComment(id, cocktails) {
+    const updatedCocktails = cocktails.comments.filter((comment) => comment.id !== id)
+    setCocktails(updatedCocktails)
   }
 
-  function handleDeleteComment(id) {
-    const updatedComments = comments.filter((comment) => comment.id !== id);
-    setComments(updatedComments)
-  }
-
-  function handleUpdateComment(updatedComment) {
-    const updatedComments = comments.map((comment) => {
+  function handleUpdateComment(updatedComment, cocktails) {
+    const updatedCocktails = cocktails.comments.map((comment) => {
       if (comment.id === updatedComment.id) {
         return updatedComment;
       } else {
         return comment;
       }
     });
-    setComments(updatedComments);
+    setCocktails(updatedCocktails);
   }
   
   return ( 
@@ -91,9 +112,20 @@ function App() {
       <NavBar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route path="/drinks" element={<Drinks cocktails={cocktails} beer={beer} />}/>
+        <Route path="/drinks" 
+          element={<Drinks 
+            cocktails={cocktails} 
+            beer={beer}
+            formData={formData}
+            handleFormSubmit={handleFormSubmit} 
+            handleUsernameChange={handleUsernameChange}
+            handleCommentChange={handleCommentChange}
+            handleDrinkChange={handleDrinkChange}
+            onCommentDelete={handleDeleteComment}
+            onCommentUpdate={handleUpdateComment} 
+            />}/>
         <Route path="/food" element={<Food foods={food} />}/>
-        <Route path="/contact" 
+        {/* <Route path="/contact" 
           element={<Contact 
             handleFormSubmit={handleFormSubmit} 
             formData={formData}
@@ -102,7 +134,7 @@ function App() {
             comments={comments}
             onCommentDelete={handleDeleteComment}
             onCommentUpdate={handleUpdateComment}
-            />}/>
+            />}/> */}
       </Routes>
     </div>
   )}

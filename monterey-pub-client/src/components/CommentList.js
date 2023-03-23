@@ -3,8 +3,9 @@ import Comment from "./Comment";
 
 function CommentList({ comments, onCommentDelete, onCommentUpdate }) {
     return (
-        <div className="list">
-            <ul>
+        <div className="card">
+            <h4>comments</h4>
+            
                 {comments.map((comment) => (
                     <Comment
                         key={comment.id}
@@ -13,7 +14,7 @@ function CommentList({ comments, onCommentDelete, onCommentUpdate }) {
                         onCommentUpdate={onCommentUpdate}
                     />
                 ))}
-            </ul>
+            
         </div>
     );
 }

@@ -15,7 +15,7 @@ body {
   border: grey solid 1px;
   padding: 1rem;
   width: 15rem;
-  height: 10rem;
+  height: auto;
   display: inline-grid;
   margin: 1rem 1rem;
   box-shadow: 3px 4px #4be06bbe;

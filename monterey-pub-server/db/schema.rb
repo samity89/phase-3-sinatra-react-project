@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2023_02_17_174950) do
   create_table "comments", force: :cascade do |t|
     t.string "username"
     t.string "body"
+    t.integer "cocktail_id"
   end
 
   create_table "foods", force: :cascade do |t|

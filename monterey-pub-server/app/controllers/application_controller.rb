@@ -11,46 +11,43 @@ class ApplicationController < Sinatra::Base
       ])
   end
   
-  get '/foods' do
-    foods = Food.all
-    foods.to_json
-  end
-
   get '/cocktails' do
     cocktails = Cocktail.all
-    cocktails.to_json
-  end
-
-  get '/beers' do
-    beers = Beer.all
-    beers.to_json
+    cocktails.to_json(
+      include: [
+        :comments
+      ])
   end
   
-  get '/comments' do
-    comments = Comment.all
-    comments.to_json
+  get '/cocktails/:id' do
+    cocktail = Cocktail.find_by_id(params[:id])
+    cocktail.to_json(
+      include: [
+        :comments
+      ])
   end
   
-  post '/comments' do
+  post '/cocktails/:id/comments' do
     comment = Comment.create(
       username: params[:username],
       body: params[:body],
-    )
-    comment.to_json
+      cocktail_id: params[:cocktail_id]
+      )
+      comment.to_json
   end
-
-  patch '/comments/:id' do
+    
+  patch '/cocktails/:cocktail_id/comments/:id' do
     comment = Comment.find(params[:id])
     comment.update(
       body: params[:body],
-    )
-    comment.to_json
+      )
+      comment.to_json
   end
-
-  delete '/comments/:id' do
+      
+  delete '/cocktails/:cocktail_id/comments/:id' do
     comment = Comment.find(params[:id])
     comment.destroy
     comment.to_json
   end
-  
+      
 end

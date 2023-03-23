@@ -7,7 +7,7 @@ function NavBar() {
     <NavLink exact="true" to="/">Home</NavLink>
     <NavLink exact="true" to="/food">Food</NavLink>
     <NavLink exact="true" to="/drinks">Drinks</NavLink>
-    <NavLink exact="true" to="/contact">Contact Us</NavLink>
+    {/* <NavLink exact="true" to="/contact">Contact Us</NavLink> */}
   </div>
 )}
 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-function EditComment({ id, body, onCommentUpdate }) {
+function EditComment({ id, body, cocktail_id, onCommentUpdate }) {
   const [commentBody, setCommentBody] = useState(body);
 
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9292/comments/${id}`, {
+    fetch(`http://localhost:9292/cocktails/${cocktail_id}/comments/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

@@ -25,7 +25,7 @@ function Contact({
       formData={formData}
       handleCommentChange={handleCommentChange}
       handleUsernameChange={handleUsernameChange}
-      />
+    />
     <h4>recent comments</h4>
     <CommentList 
       comments={comments}
