@@ -57,53 +57,56 @@ function App() {
           "cocktail_id": formData.drink,
         })
       })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        return response.json()
+      })
       .then((newComment) => handleAddComment(newComment))
       setFormData(initializeForm)
     }
     
-  function handleAddComment (formData, newComment) {
+  function handleAddComment (newComment) {
     const updatedCocktails = cocktails.map((cocktail) => {
-     if (cocktail.id === formData.drink) {
-      return (
-        [...cocktail.comments, newComment]
-       )
-       } else {
+      if (cocktail.id === newComment.cocktail_id) {
+        const updatedCommentArray = [...cocktail.comments, newComment]
+        cocktail.comments = updatedCommentArray
+        return cocktail
+      } else {
         return cocktail;
-       }
+      }
      })
-     console.log(updatedCocktails)
      setCocktails(updatedCocktails)
    }    
-
-
-  // function handleAddComment (formData, newComment) {
-  //    const updatedCocktails = cocktails.map((cocktail) => {
-  //     if (cocktail.id === formData.drink) {
-  //       return (
-  //         [...cocktail.comments, newComment]
-  //       )
-  //     } else {
-  //         return cocktail;
-  //     }
-  //   })
-  //   console.log(updatedCocktails)
-  //   setCocktails(updatedCocktails)
-  // }
       
-  function handleDeleteComment(id, cocktails) {
-    const updatedCocktails = cocktails.comments.filter((comment) => comment.id !== id)
-    setCocktails(updatedCocktails)
+  function handleDeleteComment(cocktail_id, id) {
+    const updatedCocktails = cocktails.map((cocktail) => {
+      if (cocktail.id === cocktail_id) {
+        const updatedCommentArray = cocktail.comments.filter((comment) => comment.id !== id)
+        cocktail.comments = updatedCommentArray
+        return cocktail
+      } else {
+        return cocktail
+      }
+    })
+      setCocktails(updatedCocktails)
   }
 
-  function handleUpdateComment(updatedComment, cocktails) {
-    const updatedCocktails = cocktails.comments.map((comment) => {
-      if (comment.id === updatedComment.id) {
-        return updatedComment;
+  function handleUpdateComment(updatedComment) {
+    const updatedCocktails = cocktails.map((cocktail) => {
+      if (cocktail.id === updatedComment.cocktail_id) {
+        const updatedCommentArray = cocktail.comments.map((comment) => {
+          if (comment.id === updatedComment.id) {
+            return updatedComment;
+          } else {
+            return comment;
+          }
+        });
+        cocktail.comments = updatedCommentArray
+        return cocktail  
       } else {
-        return comment;
+        return cocktail
       }
-    });
+    })
     setCocktails(updatedCocktails);
   }
   

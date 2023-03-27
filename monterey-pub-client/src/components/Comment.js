@@ -10,7 +10,7 @@ function Comment({ comment, onCommentDelete, onCommentUpdate }) {
       method: "DELETE",
     });
 
-    onCommentDelete(id);
+    onCommentDelete(cocktail_id , id);
   }
 
   function handleUpdateComment(updatedComment) {

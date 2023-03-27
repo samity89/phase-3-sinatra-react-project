@@ -35,7 +35,8 @@ class ApplicationController < Sinatra::Base
       )
       comment.to_json
   end
-    
+    # consider finding cocktail id through collection (Call create on collection not on class)  
+
   patch '/cocktails/:cocktail_id/comments/:id' do
     comment = Comment.find(params[:id])
     comment.update(
