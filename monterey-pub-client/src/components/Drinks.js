@@ -43,6 +43,7 @@ function Drinks({
       handleUsernameChange={handleUsernameChange}
       handleCommentChange={handleCommentChange}
       handleDrinkChange={handleDrinkChange}
+      cocktails={cocktails}
       />
     </div>
     );
